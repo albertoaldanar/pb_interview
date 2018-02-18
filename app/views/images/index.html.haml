@@ -11,6 +11,7 @@
             = simple_form_for @image, html: { multipart: true } do |f|
               .input-photo
                 = f.input :photo, as: :file
+                =f.submit
               .submit-btn
 
         .save-button
@@ -24,10 +25,14 @@
             .loaded-image
               .my_image
                 =image_tag image.photo.url(:small)
-                / =link_to "Destroy", image, method: :delete
+              .options-image.hidden
+                %h4 Estas seguro que quieres eliminar la imagen?
+                .two-buttons
+                  =link_to "Si, eliminar", image, method: :delete, :class => "delete_button"
+                  %button.exit-btn No, cancelar,
               .options.hidden
                 %button Agregar descripcion
-                %button Eliminar elemento
+                %button.delete-btn Eliminar elemento
           .save-button
             %button Guardar Cambios
 

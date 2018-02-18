@@ -10,7 +10,6 @@
   padding: 10px
   left: 8px
   right: 8px
-  @include transition(.2s)
 
   img
     position: relative
@@ -18,26 +17,43 @@
     width: 600px
     border-radius: 5px
 
-  .my_image
-    position: absolute
-    &hover
-      @include transition(.2s)
+.my_image
+  position: absolute
 
-  .options
-    display: flex
-    justify-content: space-around
-    position: relative
-    top: 280px
-    background-color: lightgray
-    opacity: 0.7
-    color: black
-    padding: 20px
-    border-radius: 5px
-    button
-      background-color: transparent
-      padding: 10px
-      font-size: 20px
+.options
+  display: flex
+  justify-content: space-around
+  position: relative
+  top: 280px
+  background-color: lightgray
+  opacity: 0.7
+  color: black
+  padding: 20px
+  border-radius: 5px
+  button
+    background-color: transparent
+    padding: 10px
+    font-size: 20px
 
+.options-image
+  position: absolue
+  background-color: lightgray
+  opacity : 0.6
+  padding: 140px
+  color: black
+  border-radius: 3px
+.two-buttons
+  display: flex
+  justify-content: space-around
 
+.delete_button
+  background-color: #c61414
+  padding: 20px
+  color: white
+  button
+    text-decoration: none
 
-
+.exit-btn
+  padding: 20px
+  background-color: #7bc043
+  color: white
