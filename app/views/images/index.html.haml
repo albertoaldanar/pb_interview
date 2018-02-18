@@ -12,7 +12,7 @@
               .input-photo
                 = f.input :photo, as: :file
               .submit-btn
-                = f.submit
+
         .save-button
           %button Guardar Cambios
 
@@ -24,7 +24,7 @@
             .loaded-image
               .my_image
                 =image_tag image.photo.url(:small)
-                =link_to "Destroy", image, method: :delete
+                / =link_to "Destroy", image, method: :delete
               .options.hidden
                 %button Agregar descripcion
                 %button Eliminar elemento
