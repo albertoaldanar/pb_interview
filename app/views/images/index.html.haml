@@ -16,14 +16,18 @@
         .save-button
           %button Guardar Cambios
 
-
   .row
     .col-xs-6
       -@all_images.each do |image|
         .card
           .dotted-border.text-center
             .loaded-image
-              =image_tag image.photo.url(:small)
+              .my_image
+                =image_tag image.photo.url(:small)
+                =link_to "Destroy", image, method: :delete
+              .options.hidden
+                %button Agregar descripcion
+                %button Eliminar elemento
           .save-button
             %button Guardar Cambios
 

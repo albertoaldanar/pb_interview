@@ -11,6 +11,13 @@ class ImagesController < ApplicationController
     end
   end
 
+   def destroy
+    @image = Image.find(params[:id])
+    if @image.destroy!
+      redirect_to root_path
+    end
+  end
+
   private
   def require_params
     # params.require(:image).permit(:photo_file_name, :photo_content_type, :photo_file_size, :url, :title)

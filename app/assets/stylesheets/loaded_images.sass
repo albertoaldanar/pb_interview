@@ -1,13 +1,43 @@
+@mixin transition($duration)
+  -webkit-transition: $duration
+  -moz-transition: $duration
+  -ms-transition: $duration
+  -o-transition: $duration
+  transition: $duration
+
 .loaded-image
-  position: absolute
   border-radius: 5px
-
   padding: 10px
-
   left: 8px
   right: 8px
+  @include transition(.2s)
 
   img
+    position: relative
     height: 370px
     width: 600px
     border-radius: 5px
+
+  .my_image
+    position: absolute
+    &hover
+      @include transition(.2s)
+
+  .options
+    display: flex
+    justify-content: space-around
+    position: relative
+    top: 280px
+    background-color: lightgray
+    opacity: 0.7
+    color: black
+    padding: 20px
+    border-radius: 5px
+    button
+      background-color: transparent
+      padding: 10px
+      font-size: 20px
+
+
+
+
