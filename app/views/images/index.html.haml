@@ -8,6 +8,23 @@
           .load-image
             %h3 Arrastra ó
             %button Selecciona tus imagenes
+            = simple_form_for @image, html: { multipart: true } do |f|
+              .input-photo
+                = f.input :photo, as: :file
+              .submit-btn
+                = f.submit
         .save-button
           %button Guardar Cambios
+
+
+  .row
+    .col-xs-6
+      -@all_images.each do |image|
+        .card
+          .dotted-border.text-center
+            .loaded-image
+              =image_tag image.photo.url(:small)
+          .save-button
+            %button Guardar Cambios
+
 
