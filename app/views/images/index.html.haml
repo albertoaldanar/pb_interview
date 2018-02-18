@@ -1,2 +1,13 @@
-.text-center
-  %h1= @images.title
+.container
+  .row
+    .col-xs-6
+      .card
+        .title
+          %h3 Vista para agregar imagenes
+        .dotted-border.text-center
+          .load-image
+            %h3 Arrastra ó
+            %button Selecciona tus imagenes
+        .save-button
+          %button Guardar Cambios
+
