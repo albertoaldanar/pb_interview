@@ -18,10 +18,6 @@ class ImagesController < ApplicationController
     end
   end
 
-  def edit
-
-  end
-
   def update
     @image_edit = Image.find(params[:id])
     if @image_edit.update!(title_params)
