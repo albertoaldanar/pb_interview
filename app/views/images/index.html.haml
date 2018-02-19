@@ -31,9 +31,51 @@
                   =link_to "Si, eliminar", image, method: :delete, :class => "delete_button"
                   %button.exit-btn No, cancelar,
               .options.hidden
-                %button Agregar descripcion
+                .btn.btn-link{"href" => "#titleModal", "role" => "button", "data-toggle" => "modal"}
+                  %h1 Agregar descripción
                 %button.delete-btn Eliminar elemento
           .save-button
             %button Guardar Cambios
+        //Modal para editar el titulo de la imagen
+
+        .modal.fade.modal-fade#titleModal
+          .modal-dialog
+            .modal-content
+              .modal-sm
+                .modal-header.text-center
+                  %button.close{type:'button', data:{dismiss:'modal'}}
+                    x
+                %h2.modal-title
+                  Escribe un titulo para tu imagen
+                .modal-body
+                  = simple_form_for image, html: { multipart: true } do |f|
+                    = f.input :title, as: :text
+                    =f.submit
+                .modal-footer
+                  %button.btn{"data-dismiss" => "modal", "aria-hidden" => "true"}
+
+/ .modal.fade.modal-fade
+/   .modal-dialog
+/     .modal-content
+/       .modal-header
+/         %button.close{type:'button', data:{dismiss:'modal'}}
+/           %span{aria:{hidden:'true'}}
+/             %i.fa.fa-close
+/           %span.sr-only Close
+/         %h4.modal-title
+/           This is my title
+/       .modal-body
+/         %h3 Alberto
+/       .modal-footer
+/         %button.btn.btn-default{type:'button', data:{dismiss:'modal'}} Close
+/         %button.btn.btn-primary{type:'button', data:{dismiss:'modal'}} Save
+
+/ Button to toggle the modal
+.btn.btn-link{"href" => "#titleModal", "role" => "button", "data-toggle" => "modal"}
+  %h1 Show modal
+
+/ Modal for editing piece's metadata.
+
+
 
 
