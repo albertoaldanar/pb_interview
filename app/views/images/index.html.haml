@@ -21,6 +21,9 @@
     .col-xs-6
       -@all_images.each do |image|
         .card
+          -if !image.title.blank?
+            %h4
+              .my-title=image.title
           .dotted-border.text-center
             .loaded-image
               .my_image
@@ -31,8 +34,8 @@
                   =link_to "Si, eliminar", image, method: :delete, :class => "delete_button"
                   %button.exit-btn No, cancelar,
               .options.hidden
-                .btn.btn-link{"href" => "#titleModal", "role" => "button", "data-toggle" => "modal"}
-                  %h1 Agregar descripción
+                .btn{"href" => "#titleModal", "role" => "button", "data-toggle" => "modal"}
+                  %button Agregar descripción
                 %button.delete-btn Eliminar elemento
           .save-button
             %button Guardar Cambios
@@ -41,18 +44,16 @@
         .modal.fade.modal-fade#titleModal
           .modal-dialog
             .modal-content
-              .modal-sm
-                .modal-header.text-center
-                  %button.close{type:'button', data:{dismiss:'modal'}}
-                    x
-                %h2.modal-title
-                  Escribe un titulo para tu imagen
+              .modal-sm.text-center
+                .modal-header
+                  %h4 Escribe un titulo para tu imagen
                 .modal-body
                   = simple_form_for image, html: { multipart: true } do |f|
                     = f.input :title, as: :text
-                    =f.submit
+                    =f.submit "Agregar titulo", :class => "btn btn-default"
                 .modal-footer
-                  %button.btn{"data-dismiss" => "modal", "aria-hidden" => "true"}
+                  %button.btn.btn-danger{"data-dismiss" => "modal", "aria-hidden" => "true"}
+                    %p Cerrar
 
 / .modal.fade.modal-fade
 /   .modal-dialog
@@ -69,12 +70,6 @@
 /       .modal-footer
 /         %button.btn.btn-default{type:'button', data:{dismiss:'modal'}} Close
 /         %button.btn.btn-primary{type:'button', data:{dismiss:'modal'}} Save
-
-/ Button to toggle the modal
-.btn.btn-link{"href" => "#titleModal", "role" => "button", "data-toggle" => "modal"}
-  %h1 Show modal
-
-/ Modal for editing piece's metadata.
 
 
 
